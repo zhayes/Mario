@@ -34,6 +34,7 @@ class Game {
 
 
         this.addGoomba();
+        this.addTurtle();
 
         this.setup();
 
@@ -47,7 +48,18 @@ class Game {
             const y = Math.random() * 200;
             const goomba = new Goomba(this, x, y);
             this.addRole(goomba);
-        }, 500)
+        }, 1000)
+    }
+
+    addTurtle() {
+        const time = 400;
+        this.addGoombaInterval = setInterval(() => {
+            if (this.roleList.length >= 50 || Math.random() * Math.abs(this.map.offset) < time) return;
+            const x = Math.random() * 1200 + 40;
+            const y = Math.random() * 200;
+            const turtle = new Turtle(this, x, y);
+            this.addRole(turtle);
+        }, 1000)
     }
 
     addRole(role) {

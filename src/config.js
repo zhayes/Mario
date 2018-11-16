@@ -2,7 +2,9 @@ const tilesPath = 'asset/tiles/ground/';
 const bigMarioPath = 'asset/characters/big/';
 const smallMarioPath = 'asset/characters/small/';
 
-const goomba = 'asset/characters/'
+const goomba = 'asset/characters/';
+
+const turtle = 'asset/characters/turtle/';
 
 const _config = {
     asset:{
@@ -41,7 +43,12 @@ const _config = {
         //goomba
         20: goomba + 'goomba1.png',
         21: goomba + 'goomba2.png',
-
+        //tumple left
+        24: turtle + 'flyl1.png',
+        25: turtle + 'flyl2.png',
+        //right
+        26: turtle + 'flyr1.png',
+        27: turtle + 'flyr2.png',
 
         //马里奥的子弹
         31: 'asset/fire1.png',
@@ -68,6 +75,19 @@ const _config = {
         [1380,500],
         [1420,500],
         [1460,500],
-        [1500,500]
+        [1500,500],
+
+        [2000,400],
+        [2040,400],
+        [2080,400],
+        [2120,400],
+        [2160,400],
+        [2200,400],
+        [3300,500],
+        [3340,500],
+        [3380,500],
+        [3420,500],
+        [3460,500],
+        [3500,500]
     ]
 }
