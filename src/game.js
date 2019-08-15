@@ -1,4 +1,10 @@
-class Game {
+import Mario from './mario';
+import Goomba from './goomba';
+import Turtle from './turtle';
+import Coin from './coin';
+import Map from './map';
+
+export default class Game {
     constructor(name, canvasElement, imageTypes, mapData, config) {
         this.name = name || 'Mario Game';
         this.canvasElement = canvasElement;

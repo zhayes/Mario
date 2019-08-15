@@ -1,4 +1,6 @@
-class Bullet{
+import AnimationAction from './animationAction';
+
+export default  class Bullet{
     constructor(game,imageList, x, y, direction, fireName, killability){
         this.game = game;
         this.direction = direction // 1是向右， -1向左

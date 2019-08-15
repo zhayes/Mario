@@ -1,4 +1,7 @@
-class Turtle extends Boilogy {
+import Boilogy from './biology';
+import AnimationAction from './animationAction';
+
+export default class Turtle extends Boilogy {
     constructor(game, x, y) {
         super(game, x, y, 100);
         this.game = game;

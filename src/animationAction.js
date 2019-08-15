@@ -1,4 +1,4 @@
-class AnimationAction{
+export default class AnimationAction{
     constructor(game, actionImgs, x, y, width, height){
         this.actionImgs = actionImgs || [];
         this.game = game;

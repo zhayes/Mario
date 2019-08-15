@@ -1,6 +1,7 @@
-class Map {
+export default  class Map {
     constructor(game, mapData) {
         this.game = game;
+
         this.map = mapData;
 
         this.cols = this.game.cols;

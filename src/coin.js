@@ -1,4 +1,6 @@
-class Coin{
+import AnimationAction from './animationAction';
+
+export default  class Coin{
     constructor(game, x, y){
         this.game = game;
         this.x = x;

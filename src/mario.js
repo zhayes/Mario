@@ -1,4 +1,8 @@
-class Mario extends Boilogy {
+import Boilogy from './biology';
+import Bullet from './bullet';
+import AnimationAction from './animationAction';
+
+export default class Mario extends Boilogy {
     constructor(game, x, y) {
         super(game, x, y);
         this.game = game;

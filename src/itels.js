@@ -1,4 +1,4 @@
-class Itels{
+export default  class Itels{
     constructor(game, x, y, image){
         this.game =game;
         this.x = x;

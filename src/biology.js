@@ -1,4 +1,4 @@
-class Boilogy{
+export default class Boilogy{
     constructor(game, x, y, bloodFlow){
         this.x = x;
         this.y = y;
