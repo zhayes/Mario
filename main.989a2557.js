@@ -17,57 +17,57 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{}],"HPsM":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var t=o(require("./mario")),e=o(require("./goomba")),i=o(require("./turtle")),a=o(require("./coin")),n=o(require("./map"));function o(t){return t&&t.__esModule?t:{default:t}}function s(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function l(t,e){for(var i=0;i<e.length;i++){var a=e[i];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(t,a.key,a)}}function r(t,e,i){return e&&l(t.prototype,e),i&&l(t,i),t}var h=function(){function o(e,i,a,l,r){s(this,o),this.name=e||"Mario Game",this.canvasElement=i,this.context=this.canvasElement.getContext("2d"),this.blockPixel=40,this.rows=16,this.cols=32,this.config=r,this.roleList=[],this.actionMap={},this.imageTypes=a,this.mapData=l,this.map=new n.default(this,this.mapData),this.addRole(this.map),this.framerate=50,this.offset=0,this.mario=new t.default(this),this.addRole(this.mario),this.drawCoins(),this.addGoomba(),this.addTurtle(),this.setup()}return r(o,[{key:"addGoomba",value:function(){var t=this;this.addGoombaInterval=setInterval(function(){if(!(t.roleList.length>=50||Math.random()*Math.abs(t.map.offset)<400)){var i=1200*Math.random()+40,a=200*Math.random(),n=new e.default(t,i,a);t.addRole(n)}},1e3)}},{key:"addTurtle",value:function(){var t=this;this.addGoombaInterval=setInterval(function(){if(!(t.roleList.length>=50||Math.random()*Math.abs(t.map.offset)<400)){var e=1200*Math.random()+40,a=200*Math.random(),n=new i.default(t,e,a);t.addRole(n)}},1e3)}},{key:"addRole",value:function(t){this.roleList.push(t)}},{key:"listenAction",value:function(){for(var t=Object.keys(this.actionMap),e=0;e<t.length;e++){var i=this.actionMap[t[e]];i.dispatch&&i.eventFunc&&i.eventFunc()}}},{key:"registerAction",value:function(t,e){this.actionMap[t]={key:t,eventFunc:e,dispatch:!1}}},{key:"initEventBind",value:function(){var t=this;window.addEventListener("keydown",function(e){var i=e.key;t.actionMap[i]&&(t.actionMap[i].dispatch=!0)}),window.addEventListener("keyup",function(e){var i=e.key;t.actionMap[i]&&(t.actionMap[i].dispatch=!1);-1!=["a","s","w","d"].indexOf(i)&&(t.map.offsetNum=0)})}},{key:"setup",value:function(){this.initEventBind(),this.loop()}},{key:"loop",value:function(){var t=this;this.mario.bloodFlow<=0||setTimeout(function(){t.update(),t.draw(),t.loop()},this.framerate)}},{key:"update",value:function(){var t=this;this.listenAction(),this.roleList=this.roleList.filter(function(e){return e.update&&e.update(t.canvasElement),!t.isOutOfGame(e)})}},{key:"draw",value:function(){if(this.mario.bloodFlow<=0)this.showGameOver();else{this.context.clearRect(0,0,this.canvasElement.width,this.canvasElement.height);for(var t=0;t<this.roleList.length;t++){var e=this.roleList[t];e.draw&&e.draw(this.canvasElement)}this.drawKillCountsAndCoins()}}},{key:"isOutOfGame",value:function(t){return!("Coin"==t.constructor.name&&t.bloodFlow>0)&&(t.x+this.canvasElement.width<0||t.x>this.canvasElement.width||t.bloodFlow<=0)}},{key:"drawKillCountsAndCoins",value:function(){this.context.font="18px Verdana",this.context.fillStyle="#f1a22f",this.context.fillText("kills："+this.mario.killCounts,10,20),this.context.fillText("coins："+this.mario.coins,10,40)}},{key:"drawCoins",value:function(){for(var t=this.config.coinPositions,e=0;e<t.length;e++){var i=new a.default(this,t[e][0],t[e][1]);this.addRole(i)}}},{key:"showGameOver",value:function(){clearInterval(this.addGoombaInterval),this.roleList=[];var t=this.context,e=this.canvasElement;t.strokeStyle="#000",t.fillStyle="rgba(0,0,0,0.6)",t.fillRect(0,0,e.width,e.height),t.font="100px Comic Sans MS",t.fillStyle="red",t.textAlign="center",t.fillText("GAME OVER",e.width/2,e.height/2-50),t.font="20px Comic Sans MS",t.fillStyle="#f1a22f",t.textAlign="center",t.fillText("杀怪数："+this.mario.killCounts,e.width/2,e.height/2+50),t.fillText("金币数："+this.mario.coins,e.width/2,e.height/2+100)}}]),o}();exports.default=h;
 },{"./mario":"Ma4o","./goomba":"QeHM","./turtle":"znV7","./coin":"T45U","./map":"pkQ8"}],"rnyh":[function(require,module,exports) {
-module.exports="/bricks.8049b9f2.bmp";
+module.exports="./bricks.8049b9f2.bmp";
 },{}],"Mjte":[function(require,module,exports) {
-module.exports="/bricks2.873081a9.bmp";
+module.exports="./bricks2.873081a9.bmp";
 },{}],"4LiE":[function(require,module,exports) {
-module.exports="/cloud.268e1c29.bmp";
+module.exports="./cloud.268e1c29.bmp";
 },{}],"HZgA":[function(require,module,exports) {
-module.exports="/grass.ca53f279.bmp";
+module.exports="./grass.ca53f279.bmp";
 },{}],"KJtL":[function(require,module,exports) {
-module.exports="/sand.a0df349f.bmp";
+module.exports="./sand.a0df349f.bmp";
 },{}],"ko82":[function(require,module,exports) {
-module.exports="/snowy.9e8026a0.bmp";
+module.exports="./snowy.9e8026a0.bmp";
 },{}],"NyYL":[function(require,module,exports) {
-module.exports="/player1r.cae2daa3.png";
+module.exports="./player1r.cae2daa3.png";
 },{}],"5Bxt":[function(require,module,exports) {
-module.exports="/player2r.5d05c506.png";
+module.exports="./player2r.5d05c506.png";
 },{}],"HDqR":[function(require,module,exports) {
-module.exports="/player3r.29b1cf53.png";
+module.exports="./player3r.29b1cf53.png";
 },{}],"/Hb3":[function(require,module,exports) {
-module.exports="/player1l.2e274347.png";
+module.exports="./player1l.2e274347.png";
 },{}],"kQD/":[function(require,module,exports) {
-module.exports="/player2l.cf58541f.png";
+module.exports="./player2l.cf58541f.png";
 },{}],"012y":[function(require,module,exports) {
-module.exports="/player3l.79f96a86.png";
+module.exports="./player3l.79f96a86.png";
 },{}],"FCT/":[function(require,module,exports) {
-module.exports="/goomba1.20238fc9.png";
+module.exports="./goomba1.20238fc9.png";
 },{}],"MNDj":[function(require,module,exports) {
-module.exports="/goomba2.6be8585a.png";
+module.exports="./goomba2.6be8585a.png";
 },{}],"2EYI":[function(require,module,exports) {
-module.exports="/flyl1.d1226693.png";
+module.exports="./flyl1.d1226693.png";
 },{}],"mY+s":[function(require,module,exports) {
-module.exports="/flyl2.69354c35.png";
+module.exports="./flyl2.69354c35.png";
 },{}],"6q23":[function(require,module,exports) {
-module.exports="/flyr1.29bb4c83.png";
+module.exports="./flyr1.29bb4c83.png";
 },{}],"BkLq":[function(require,module,exports) {
-module.exports="/flyr2.80e5d00f.png";
+module.exports="./flyr2.80e5d00f.png";
 },{}],"JtyZ":[function(require,module,exports) {
-module.exports="/fire1.42b842f6.png";
+module.exports="./fire1.42b842f6.png";
 },{}],"E0/W":[function(require,module,exports) {
-module.exports="/fire2.5ffca678.png";
+module.exports="./fire2.5ffca678.png";
 },{}],"KnN5":[function(require,module,exports) {
-module.exports="/fire3.cdd1c134.png";
+module.exports="./fire3.cdd1c134.png";
 },{}],"RhUO":[function(require,module,exports) {
-module.exports="/fire4.560eaf6c.png";
+module.exports="./fire4.560eaf6c.png";
 },{}],"Rj0K":[function(require,module,exports) {
-module.exports="/coin1.3652e91f.png";
+module.exports="./coin1.3652e91f.png";
 },{}],"ZlDO":[function(require,module,exports) {
-module.exports="/coin2.d83f6f65.png";
+module.exports="./coin2.d83f6f65.png";
 },{}],"j/xi":[function(require,module,exports) {
-module.exports="/coin3.fec161d5.png";
+module.exports="./coin3.fec161d5.png";
 },{}],"t9NX":[function(require,module,exports) {
-module.exports="/coin4.c478ec50.png";
+module.exports="./coin4.c478ec50.png";
 },{}],"nZps":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=require("../asset/tiles/ground/bricks.bmp"),r=require("../asset/tiles/ground/bricks2.bmp"),s=require("../asset/tiles/ground/cloud.bmp"),a=require("../asset/tiles/ground/grass.bmp"),t=require("../asset/tiles/ground/bricks.bmp"),i=require("../asset/tiles/ground/sand.bmp"),u=require("../asset/tiles/ground/snowy.bmp"),n=require("../asset/characters/big/player1r.png"),p=require("../asset/characters/big/player2r.png"),g=require("../asset/characters/big/player3r.png"),c=require("../asset/characters/big/player1l.png"),l=require("../asset/characters/big/player2l.png"),o=require("../asset/characters/big/player3l.png"),q=require("../asset/characters/goomba1.png"),b=require("../asset/characters/goomba2.png"),d=require("../asset/characters/turtle/flyl1.png"),h=require("../asset/characters/turtle/flyl2.png"),y=require("../asset/characters/turtle/flyr1.png"),f=require("../asset/characters/turtle/flyr2.png"),m=require("../asset/fire1.png"),k=require("../asset/fire2.png"),v=require("../asset/fire3.png"),x=require("../asset/fire4.png"),P=require("../asset/bonus/coin1.png"),_=require("../asset/bonus/coin2.png"),j=require("../asset/bonus/coin3.png"),w=require("../asset/bonus/coin4.png"),M={asset:{1:e,2:r,3:s,4:a,5:t,6:i,7:u,8:n,9:p,10:g,11:c,12:l,13:o,20:q,21:b,24:d,25:h,26:y,27:f,31:m,32:k,33:v,34:x,41:P,42:_,43:j,44:w},coinPositions:[[1e3,400],[1040,400],[1080,400],[1120,400],[1160,400],[1200,400],[1300,500],[1340,500],[1380,500],[1420,500],[1460,500],[1500,500],[2e3,400],[2040,400],[2080,400],[2120,400],[2160,400],[2200,400],[3300,500],[3340,500],[3380,500],[3420,500],[3460,500],[3500,500]]},O=M;exports.default=O;
 },{"../asset/tiles/ground/bricks.bmp":"rnyh","../asset/tiles/ground/bricks2.bmp":"Mjte","../asset/tiles/ground/cloud.bmp":"4LiE","../asset/tiles/ground/grass.bmp":"HZgA","../asset/tiles/ground/sand.bmp":"KJtL","../asset/tiles/ground/snowy.bmp":"ko82","../asset/characters/big/player1r.png":"NyYL","../asset/characters/big/player2r.png":"5Bxt","../asset/characters/big/player3r.png":"HDqR","../asset/characters/big/player1l.png":"/Hb3","../asset/characters/big/player2l.png":"kQD/","../asset/characters/big/player3l.png":"012y","../asset/characters/goomba1.png":"FCT/","../asset/characters/goomba2.png":"MNDj","../asset/characters/turtle/flyl1.png":"2EYI","../asset/characters/turtle/flyl2.png":"mY+s","../asset/characters/turtle/flyr1.png":"6q23","../asset/characters/turtle/flyr2.png":"BkLq","../asset/fire1.png":"JtyZ","../asset/fire2.png":"E0/W","../asset/fire3.png":"KnN5","../asset/fire4.png":"RhUO","../asset/bonus/coin1.png":"Rj0K","../asset/bonus/coin2.png":"ZlDO","../asset/bonus/coin3.png":"j/xi","../asset/bonus/coin4.png":"t9NX"}],"PDDi":[function(require,module,exports) {
